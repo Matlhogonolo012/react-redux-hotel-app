@@ -1,23 +1,55 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../slices/authSlice';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "/src/redux/slices/authSlice.jsx";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const { loading, error } = useSelector(state => state.auth);
+  const navigate = useNavigate();
+  const { error, loading } = useSelector((state) => state.auth);
 
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(loginUser({ email, password }));
+
+    const resultAction = await dispatch(loginUser({ email, password }));
+    console.log("Payload:", resultAction.payload);
+
+    if (loginUser.fulfilled.match(resultAction)) {
+      const userRole = resultAction.payload.role?.trim().toLowerCase();
+      console.log(`User Role from payload: ${userRole}`);
+
+      if (userRole === "admin") {
+        console.log("Navigating to: /adminPage");
+        navigate("/adminPage");
+      } else {
+        console.log("Navigating to: /userPage");
+        navigate("/userPage");
+      }
+    } else {
+      console.error("Login failed:", resultAction.payload);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit" disabled={loading}>Login</button>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+      <button type="submit" disabled={loading}>
+        Login
+      </button>
       {error && <p>{error}</p>}
     </form>
   );

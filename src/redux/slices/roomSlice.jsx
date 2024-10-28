@@ -1,18 +1,26 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { firestore } from '../../firebase';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { db } from "/src/config/firebase.jsx";
+import { collection, getDocs } from "firebase/firestore";
 
-export const fetchRooms = createAsyncThunk('rooms/fetchRooms', async (_, { rejectWithValue }) => {
-  try {
-    const roomsSnap = await firestore.collection('rooms').get();
-    const rooms = roomsSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return rooms;
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const fetchRooms = createAsyncThunk(
+  "rooms/fetchRooms",
+  async (_, { rejectWithValue }) => {
+    try {
+      const roomsCollection = collection(db, "rooms");
+      const roomsSnap = await getDocs(roomsCollection);
+      const rooms = roomsSnap.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      return rooms;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
 const roomSlice = createSlice({
-  name: 'rooms',
+  name: "rooms",
   initialState: {
     availableRooms: [],
     loading: false,

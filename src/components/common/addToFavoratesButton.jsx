@@ -1,6 +1,5 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addFavoriteRoom } from '../../slices/favoriteSlice';
+import { useDispatch } from "react-redux";
+import { addFavoriteRoom } from "/src/redux/slices/favoriteSlice.jsx";
 
 const AddToFavoritesButton = ({ room }) => {
   const dispatch = useDispatch();

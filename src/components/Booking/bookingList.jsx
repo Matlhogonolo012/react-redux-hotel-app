@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchBookings } from '../../slices/bookingSlice';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBookings } from "/src/redux/slices/bookingSlice.jsx";
 
 const BookingList = () => {
   const dispatch = useDispatch();
-  const { bookings, loading } = useSelector(state => state.bookings);
+  const { bookings, loading } = useSelector((state) => state.bookings);
 
   useEffect(() => {
     dispatch(fetchBookings());
@@ -14,7 +14,7 @@ const BookingList = () => {
 
   return (
     <div>
-      {bookings.map(booking => (
+      {bookings.map((booking) => (
         <div key={booking.id}></div>
       ))}
     </div>

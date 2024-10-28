@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAvailableRooms } from '../slices/roomSlice';
-// import RoomCard from '../components/Common/RoomCard';
-import AddToFavoritesButton from '../components/Common/AddToFavoritesButton';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRooms } from "/src/redux/slices/roomSlice.jsx";
+import RoomCard from "/src/components/common/roomCard.jsx";
+import AddToFavoritesButton from "/src/components/common/addToFavoratesButton.jsx";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { availableRooms, loading } = useSelector(state => state.rooms);
+  const { availableRooms, loading } = useSelector((state) => state.rooms);
 
   useEffect(() => {
-    dispatch(fetchAvailableRooms());
+    dispatch(fetchRooms());
   }, [dispatch]);
 
   if (loading) return <p>Loading rooms...</p>;
@@ -18,7 +18,7 @@ const HomePage = () => {
     <div>
       <h1>Available Rooms</h1>
       <div>
-        {availableRooms.map(room => (
+        {availableRooms.map((room) => (
           <div key={room.id}>
             <RoomCard room={room} />
             <AddToFavoritesButton room={room} />

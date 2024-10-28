@@ -1,7 +1,6 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import BookingList from '../components/Booking/bookingList';
-import Favorites from '../components/Booking/Favorites';
+import Favorites from '/src/components/Booking/favourites.jsx';
 import RateBooking from '../components/Booking/RateBooking';
 
 const UserPage = () => {

@@ -1,19 +1,19 @@
 import { initializeApp } from "firebase/app";
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBi1to0YStuWtGH2344G1pBuc0CsYFi0_A",
-  authDomain: "react-redux-hotel-app.firebaseapp.com",
-  projectId: "react-redux-hotel-app",
-  storageBucket: "react-redux-hotel-app.appspot.com",
-  messagingSenderId: "277832684083",
-  appId: "1:277832684083:web:1bff6cf1fc65a2cac94946"
+  apiKey: "AIzaSyCScRBxt00Bg2CWOqU5gKfSfzxvsjwhpCE",
+  authDomain: "react-redux-hotel-app-30d0b.firebaseapp.com",
+  projectId: "react-redux-hotel-app-30d0b",
+  storageBucket: "react-redux-hotel-app-30d0b.appspot.com",
+  messagingSenderId: "984495412645",
+  appId: "1:984495412645:web:14722413d8da0592c9844c",
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const auth = firebaseApp.auth();
-const db = firebaseApp.firestore();
+const firebaseApp = initializeApp(firebaseConfig);
+
+const auth = getAuth(firebaseApp);
+const db = getFirestore(firebaseApp);
 
 export { auth, db };

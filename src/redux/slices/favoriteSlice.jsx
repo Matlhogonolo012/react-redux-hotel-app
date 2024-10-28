@@ -1,29 +1,43 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { firestore } from '../../firebase';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { db } from "/src/config/firebase.jsx";
 
-export const addFavoriteRoom = createAsyncThunk('favorites/addFavorite', async (roomData, { getState, rejectWithValue }) => {
-  try {
-    const userId = getState().auth.user.uid;
-    const favoriteRef = await firestore.collection('favorites').add({ ...roomData, userId });
-    return { id: favoriteRef.id, ...roomData };
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const addFavoriteRoom = createAsyncThunk(
+  "favorites/addFavorite",
+  async (roomData, { getState, rejectWithValue }) => {
+    try {
+      const userId = getState().auth.user.uid;
+      const favoriteRef = await db
+        .collection("favorites")
+        .add({ ...roomData, userId });
+      return { id: favoriteRef.id, ...roomData };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
-export const fetchFavorites = createAsyncThunk('favorites/fetchFavorites', async (_, { getState, rejectWithValue }) => {
-  try {
-    const userId = getState().auth.user.uid;
-    const favoritesSnap = await firestore.collection('favorites').where('userId', '==', userId).get();
-    const favorites = favoritesSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return favorites;
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const fetchFavorites = createAsyncThunk(
+  "favorites/fetchFavorites",
+  async (_, { getState, rejectWithValue }) => {
+    try {
+      const userId = getState().auth.user.uid;
+      const favoritesSnap = await db
+        .collection("favorites")
+        .where("userId", "==", userId)
+        .get();
+      const favorites = favoritesSnap.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      return favorites;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
 const favoriteSlice = createSlice({
-  name: 'favorites',
+  name: "favorites",
   initialState: {
     favoriteRooms: [],
     loading: false,

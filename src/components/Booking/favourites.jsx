@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchFavorites } from '../../slices/favoriteSlice';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFavorites } from "/src/redux/slices/favoriteSlice.jsx";
 
 const Favorites = () => {
   const dispatch = useDispatch();
-  const { favoriteRooms, loading } = useSelector(state => state.favorites);
+  const { favoriteRooms, loading } = useSelector((state) => state.favorites);
 
   useEffect(() => {
     dispatch(fetchFavorites());
@@ -14,7 +14,7 @@ const Favorites = () => {
 
   return (
     <div>
-      {favoriteRooms.map(room => (
+      {favoriteRooms.map((room) => (
         <div key={room.id}></div>
       ))}
     </div>

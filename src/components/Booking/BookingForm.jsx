@@ -1,38 +1,41 @@
-// src/components/Booking/BookingForm.js
-
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addBooking } from '../../slices/bookingSlice';
-import { calculateDaysBetween, formatDate } from '../../utils/dateUtils';
-import { calculateTotalPrice, applyDiscount } from '../../utils/priceUtils';
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addBooking } from "/src/redux/slices/bookingSlice.jsx";
+import { calculateDaysBetween, formatDate } from "../../utils/dateUtils";
+import { calculateTotalPrice, applyDiscount } from "../../utils/priceUtils";
 
 const BookingForm = ({ room }) => {
   const dispatch = useDispatch();
-  const { user } = useSelector(state => state.auth);
-  
-  const [checkInDate, setCheckInDate] = useState('');
-  const [checkOutDate, setCheckOutDate] = useState('');
+  const { user } = useSelector((state) => state.auth);
+
+  const [checkInDate, setCheckInDate] = useState("");
+  const [checkOutDate, setCheckOutDate] = useState("");
   const [totalDays, setTotalDays] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [guestCount, setGuestCount] = useState(1);
-  const [discountPercentage, setDiscountPercentage] = useState(0); // Default no discount
+  const [discountPercentage, setDiscountPercentage] = useState(0);
 
-  // Calculate total days and price when dates change
+  const pricePerNight = room?.pricePerNight || 0;
+
   useEffect(() => {
     if (checkInDate && checkOutDate) {
       const days = calculateDaysBetween(checkInDate, checkOutDate);
       setTotalDays(days);
 
-      let calculatedPrice = calculateTotalPrice(room.pricePerNight, days);
+      try {
+        let calculatedPrice = calculateTotalPrice(pricePerNight, days);
 
-      // Apply discount if there is one
-      if (discountPercentage > 0) {
-        calculatedPrice = applyDiscount(calculatedPrice, discountPercentage);
+        if (discountPercentage > 0) {
+          calculatedPrice = applyDiscount(calculatedPrice, discountPercentage);
+        }
+
+        setTotalPrice(calculatedPrice);
+      } catch (error) {
+        console.error("Error calculating price:", error.message);
+        setTotalPrice(0);
       }
-
-      setTotalPrice(calculatedPrice);
     }
-  }, [checkInDate, checkOutDate, room.pricePerNight, discountPercentage]);
+  }, [checkInDate, checkOutDate, pricePerNight, discountPercentage]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,8 +53,12 @@ const BookingForm = ({ room }) => {
     };
 
     dispatch(addBooking(bookingData));
-    alert('Booking successful!');
+    alert("Booking successful!");
   };
+
+  if (!room) {
+    return <p>Loading room details...</p>;
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -81,7 +88,7 @@ const BookingForm = ({ room }) => {
           min="1"
           max={room.maxGuests}
           value={guestCount}
-          onChange={(e) => setGuestCount(e.target.value)}
+          onChange={(e) => setGuestCount(Number(e.target.value))}
           required
         />
       </label>

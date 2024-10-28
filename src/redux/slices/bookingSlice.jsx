@@ -1,29 +1,47 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { firestore } from '../../firebase';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { db } from "/src/config/firebase.jsx";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 
-export const addBooking = createAsyncThunk('bookings/addBooking', async (bookingData, { getState, rejectWithValue }) => {
-  try {
-    const userId = getState().auth.user.uid;
-    const bookingRef = await firestore.collection('bookings').add({ ...bookingData, userId, createdAt: new Date() });
-    return { id: bookingRef.id, ...bookingData };
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const addBooking = createAsyncThunk(
+  "bookings/addBooking",
+  async (bookingData, { getState, rejectWithValue }) => {
+    try {
+      const userId = getState().auth.user.uid;
+      const bookingRef = await addDoc(collection(db, "bookings"), {
+        ...bookingData,
+        userId,
+        createdAt: new Date(),
+      });
+      return { id: bookingRef.id, ...bookingData };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
-export const fetchBookings = createAsyncThunk('bookings/fetchBookings', async (_, { getState, rejectWithValue }) => {
-  try {
-    const userId = getState().auth.user.uid;
-    const bookingSnap = await firestore.collection('bookings').where('userId', '==', userId).get();
-    const bookings = bookingSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return bookings;
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const fetchBookings = createAsyncThunk(
+  "bookings/fetchBookings",
+  async (_, { getState, rejectWithValue }) => {
+    try {
+      const userId = getState().auth.user.uid;
+      const q = query(
+        collection(db, "bookings"),
+        where("userId", "==", userId)
+      );
+      const bookingSnap = await getDocs(q);
+      const bookings = bookingSnap.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      return bookings;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
 const bookingSlice = createSlice({
-  name: 'bookings',
+  name: "bookings",
   initialState: {
     bookings: [],
     loading: false,

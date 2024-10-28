@@ -10,6 +10,16 @@ Welcome to the Hotel Booking App! This project is a full-featured hotel booking 
 - **Favorites** and **Rating** functionality for users to mark and review previous bookings
 - **Payment integration** with PayPal for secure, seamless payment processing
 
+## Built With
+
+- [![React][React.js]][React-url]
+- [![Redux][Redux.js]][Redux-url]
+- [![Firebase][Firebase]][Firebase-url]
+
+## About The Hotel 
+
+**Harmony Heights** is a vintage-themed hotel management app that leverages the power of React, Redux, and Firebase. This application aims to provide a robust and user-friendly solution for managing hotel operations while embodying the timeless elegance of its namesake in Pretoria.
+
 ## 📂 Project Structure
 
 Here's an overview of the project structure:
@@ -63,6 +73,8 @@ hotel-booking-app/
 │   │   │   ├── roomSlice.js
 │   │   │   ├── bookingSlice.js
 │   │   │   └── favoriteSlice.js
+|   |   |   └── ratingSlice.js
+
 │   ├── services/
 │   │   ├── firebase.js
 │   │   └── api.js
@@ -98,9 +110,20 @@ hotel-booking-app/
    npm install @reduxjs/toolkit
 npm install firebase react-router-dom redux react-redux @paypal/react-paypal-js
 
+Navigate to the project directory:
+
+```
+cd hotel-app
+```
+3. **Change branch from main to dev:**
+
+``` 
+git checkout dev 
+```
+
 3. **Start the application:**
    ```
-   npm start
+   npm run dev
    ```
 
 ## 🌐 Usage
@@ -123,6 +146,12 @@ npm install firebase react-router-dom redux react-redux @paypal/react-paypal-js
 - The **PayPalButton.js** component in `Payment/` manages payment processing.
 - Payments are secured through PayPal’s client ID setup.
 
+## Contact
+
+- Author: Matlhogonolo Naoa
+- Email: tlhoxi12@gmail.com
+- Project Link: `https://github.com/Matlhogonolo012/react-redux-hotel-app`
+
 ## 📝 License
 This project is licensed under the MIT License.
 
@@ -130,3 +159,9 @@ This project is licensed under the MIT License.
 
 > **Happy Booking! 🏨🌐**
 
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Redux.js]: https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white
+[Redux-url]: https://redux.js.org/
+[Firebase]: https://firebase.google.com/
+[Firebase-url]: https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black

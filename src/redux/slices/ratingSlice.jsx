@@ -1,31 +1,39 @@
-// src/slices/ratingSlice.js
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { db } from "/src/config/firebase.jsx";
+import { collection, addDoc, getDocs, query, where } from "firebase/firestore";
 
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { db } from '../firebase';
-import { collection, addDoc, getDocs, query, where } from 'firebase/firestore';
+export const fetchRatings = createAsyncThunk(
+  "ratings/fetchRatings",
+  async (userId) => {
+    const q = query(collection(db, "ratings"), where("userId", "==", userId));
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  }
+);
 
-export const fetchRatings = createAsyncThunk('ratings/fetchRatings', async (userId) => {
-  const q = query(collection(db, 'ratings'), where('userId', '==', userId));
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-});
-
-export const addRating = createAsyncThunk('ratings/addRating', async ({ roomId, rating, userId }) => {
-  const docRef = await addDoc(collection(db, 'ratings'), { roomId, rating, userId });
-  return { id: docRef.id, roomId, rating, userId };
-});
+export const addRating = createAsyncThunk(
+  "ratings/addRating",
+  async ({ roomId, rating, userId }) => {
+    const docRef = await addDoc(collection(db, "ratings"), {
+      roomId,
+      rating,
+      userId,
+    });
+    return { id: docRef.id, roomId, rating, userId };
+  }
+);
 
 const ratingSlice = createSlice({
-  name: 'ratings',
+  name: "ratings",
   initialState: {
     ratings: [],
     loading: false,
     error: null,
   },
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchRatings.pending, state => {
+      .addCase(fetchRatings.pending, (state) => {
         state.loading = true;
       })
       .addCase(fetchRatings.fulfilled, (state, action) => {
