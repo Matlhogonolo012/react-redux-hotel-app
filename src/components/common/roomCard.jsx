@@ -1,4 +1,3 @@
-import React from "react";
 import '/src/assets/styles/roomCard.css'; // Import the CSS file
 
 const RoomCard = ({ room }) => {
@@ -19,7 +18,7 @@ const RoomCard = ({ room }) => {
       <div className="room-photo-wrapper">
         {photos.length > 0 ? (
           <img
-            src={photos[0]} // Display the first photo as the main image
+            src={photos[0]} 
             alt="Room"
             className="room-photo"
           />
@@ -34,7 +33,7 @@ const RoomCard = ({ room }) => {
           <p><strong>Bed Type:</strong> {bedType}</p>
           <p><strong>Capacity:</strong> {capacity} guests</p>
           <p><strong>Size:</strong> {size} sq ft</p>
-          <p><strong>Price per night:</strong> ${pricePerNight}</p>
+          <p><strong>Price per night:</strong> R{pricePerNight}</p>
           <p><strong>Max Guests:</strong> {maxGuests}</p>
           <p>
             <strong>Amenities:</strong> In-room (

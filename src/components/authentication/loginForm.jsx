@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { loginUser } from "/src/redux/slices/authSlice.jsx";
-import "/src/assets/styles/login-signup.css"
+import "/src/assets/styles/login-signup.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -11,20 +11,42 @@ const LoginForm = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isBooking, setIsBooking] = useState(false);
+
+  useEffect(() => {
+    const bookingDetails = JSON.parse(localStorage.getItem("bookingDetails"));
+    console.log("Booking Details:", bookingDetails);
+    setIsBooking(!!bookingDetails);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submitting login:", { email, password });
 
     const resultAction = await dispatch(loginUser({ email, password }));
+
     if (loginUser.fulfilled.match(resultAction)) {
       const userRole = resultAction.payload.role?.trim().toLowerCase();
+      console.log("User Role:", userRole);
+
       if (userRole === "admin") {
-        navigate("/adminPage");
+        alert("Admins cannot book rooms. Redirecting to the booking form.");
+        navigate("/BookingForm");
+        return;
+      }
+
+      console.log("Is Booking:", isBooking);
+
+      if (isBooking) {
+        alert("Redirecting to payment page for your booking.");
+        navigate("/payment");
+        localStorage.removeItem("bookingDetails");
       } else {
         navigate("/userPage");
       }
     } else {
       console.error("Login failed:", resultAction.payload);
+      alert("Login failed. Please check your credentials and try again.");
     }
   };
 
@@ -52,9 +74,14 @@ const LoginForm = () => {
       </button>
       {error && <p className="error-message">{error}</p>}
       <p className="link-text">
-        Don't have an account? <Link to="/signupPage" className="signup-link">Sign Up</Link>
+        Don't have an account?{" "}
+        <Link to="/signupPage" className="signup-link">
+          Sign Up
+        </Link>
       </p>
-      <Link to="/forgotPassword" className="forgot-password-link">Forgot Password?</Link>
+      <Link to="/forgotPassword" className="forgot-password-link">
+        Forgot Password?
+      </Link>
     </form>
   );
 };

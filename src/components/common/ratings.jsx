@@ -1,4 +1,4 @@
-import '/src/components/authentication/ai/ai-css/reviews.css'; // Import the CSS file
+import '/src/assets/styles/reviews.css'; 
 
 
 function Reviews() {

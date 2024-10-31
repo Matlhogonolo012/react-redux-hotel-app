@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRooms } from "/src/redux/slices/roomSlice.jsx";
-import BookingForm from "../components/Booking/BookingForm";
+import BookingForm from "./BookingForm";
 import { useParams } from "react-router-dom";
 
 const RoomDetailsPage = () => {
@@ -26,7 +26,7 @@ const RoomDetailsPage = () => {
     <div>
       <h1>{room.name}</h1>
       <p>{room.description}</p>
-      <p>Price per night: ${room.pricePerNight}</p>
+      <p>Price per night: R{room.pricePerNight}</p>
       <BookingForm room={room} />
     </div>
   );

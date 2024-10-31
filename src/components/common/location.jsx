@@ -1,4 +1,4 @@
-import '/src/components/authentication/ai/ai-css/location.css'; // Assuming you want to use a regular CSS file now
+import '/src/assets/styles/location.css';  
 
 function Location() {
   return (

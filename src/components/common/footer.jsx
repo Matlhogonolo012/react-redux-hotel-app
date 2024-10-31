@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import '/src/components/authentication/ai/ai-css/footer.css'; // Import the CSS file
+import { Link } from 'react-router-dom';
+import '/src/assets/styles/footer.css'; 
 
 function Footer() {
   return (

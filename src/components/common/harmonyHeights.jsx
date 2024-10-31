@@ -1,5 +1,5 @@
-import '/src/components/authentication/ai/ai-css/harmonyheights.css'; 
-import Header from '../components/common/header';
+import '/src/assets/styles/harmonyheights.css'; 
+import Header from './header';
 
 function HarmonyHeights() {
   return (
@@ -36,7 +36,7 @@ function HarmonyHeights() {
                 Nestled at the heart of Pretoria, Harmony Heights offers stunning views of the cityscape, including the iconic Union Buildings and vibrant local vendors.
               </p>
               <p className="infoAmenities">
-                Harmony Heights is a comprehensive retreat with modern amenities, including a relaxing spa, a children's play area, and various activities to enhance your stay. Enjoy a memorable getaway with easy access to these unique local attractions.
+                Harmony Heights is a comprehensive retreat with modern amenities, including a relaxing spa, a childrens play area, and various activities to enhance your stay. Enjoy a memorable getaway with easy access to these unique local attractions.
               </p>
             </div>
           </div>

@@ -13,13 +13,17 @@ export const fetchRatings = createAsyncThunk(
 
 export const addRating = createAsyncThunk(
   "ratings/addRating",
-  async ({ roomId, rating, userId }) => {
-    const docRef = await addDoc(collection(db, "ratings"), {
-      roomId,
-      rating,
-      userId,
-    });
-    return { id: docRef.id, roomId, rating, userId };
+  async ({ roomId, rating, userId }, { rejectWithValue }) => {
+    try {
+      const docRef = await addDoc(collection(db, "ratings"), {
+        roomId,
+        rating,
+        userId,
+      });
+      return { id: docRef.id, roomId, rating, userId };
+    } catch (error) {
+      return rejectWithValue(error.message || "Failed to submit rating");
+    }
   }
 );
 
@@ -46,6 +50,9 @@ const ratingSlice = createSlice({
       })
       .addCase(addRating.fulfilled, (state, action) => {
         state.ratings.push(action.payload);
+      })
+      .addCase(addRating.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });

@@ -1,4 +1,4 @@
-import '/src/components/authentication/ai/ai-css/header.css';
+import '/src/assets/styles/header.css'; 
 
  import { Link } from 'react-router-dom'; 
 
@@ -23,7 +23,7 @@ import '/src/components/authentication/ai/ai-css/header.css';
          <nav className="facilitiesNav">
            <ul className="facilitiesList">
              <li><Link to="/facilities" className="facilitiesLink">Facilities</Link></li>
-             <li><Link to="/book" className="facilitiesLink">Book Now</Link></li>
+             <li><Link to="/BookingForm" className="facilitiesLink">Book Now</Link></li>
            </ul>
          </nav>
          <div className="authButtons">

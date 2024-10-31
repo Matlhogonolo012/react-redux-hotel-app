@@ -2,7 +2,7 @@ import RoomList from "../components/common/roomList";
 import Reviews from "../components/common/ratings";
 import Footer from "../components/common/footer";
 import Location from "../components/common/location";
-import HarmonyHeights from "./harmonyHeights";
+import HarmonyHeights from "../components/common/harmonyHeights";
 
 const HomePage = () => {
   return (
