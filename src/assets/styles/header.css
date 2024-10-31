@@ -1,0 +1,75 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.navigation {
+  flex-grow: 1;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.subNav {
+  display: flex;
+  align-items: center;
+}
+
+.facilitiesNav {
+  margin-right: 20px;
+}
+
+.facilitiesList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.facilitiesLink {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.authButtons {
+  display: flex;
+}
+
+.signUpButton,
+.loginButton {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signUpButton:hover,
+.loginButton:hover {
+  background-color: #0056b3;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "/src/redux/slices/authSlice.jsx";
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -32,13 +33,15 @@ const RegisterForm = () => {
   }, [error]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="register-form">
+      <h2 className="form-title">Create an Account</h2>
       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
+        className="form-input"
       />
       <input
         type="password"
@@ -46,16 +49,20 @@ const RegisterForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+        className="form-input"
       />
-      <select value={role} onChange={(e) => setRole(e.target.value)}>
+      <select value={role} onChange={(e) => setRole(e.target.value)} className="form-select">
         <option value="user">User</option>
         <option value="admin">Admin</option>
       </select>
-      <button type="submit" disabled={loading}>
+      <button type="submit" disabled={loading} className="submit-button">
         Sign Up
       </button>
-      {successMessage && <p>{successMessage}</p>}
-      {error && <p className="error">{error}</p>}
+      {successMessage && <p className="success-message">{successMessage}</p>}
+      {error && <p className="error-message">{error}</p>}
+      <p className="link-text">
+        Already have an account? <Link to="/login" className="signup-link">Log In</Link>
+      </p>
     </form>
   );
 };

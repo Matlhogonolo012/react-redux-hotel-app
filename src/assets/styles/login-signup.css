@@ -1,0 +1,133 @@
+
+
+.login-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .submit-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+  }
+  
+  .link-text {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .forgot-password-link,
+  .signup-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .forgot-password-link:hover,
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+ 
+
+.register-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-input, .form-select {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .submit-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 0.9em;
+    text-align: center;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+  }
+  
+  .link-text {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .signup-link {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  

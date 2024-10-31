@@ -1,6 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { db } from "/src/config/firebase.jsx";
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 
 export const fetchRooms = createAsyncThunk(
   "rooms/fetchRooms",
@@ -32,7 +39,6 @@ export const createRoom = createAsyncThunk(
   }
 );
 
-// Update Room
 export const updateRoom = createAsyncThunk(
   "rooms/updateRoom",
   async ({ id, updatedData }, { rejectWithValue }) => {
@@ -69,7 +75,7 @@ const roomSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-  
+
       .addCase(fetchRooms.pending, (state) => {
         state.loading = true;
       })
@@ -81,7 +87,7 @@ const roomSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      
+
       .addCase(createRoom.pending, (state) => {
         state.loading = true;
       })
@@ -93,12 +99,14 @@ const roomSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      
+
       .addCase(updateRoom.pending, (state) => {
         state.loading = true;
       })
       .addCase(updateRoom.fulfilled, (state, action) => {
-        const index = state.availableRooms.findIndex(room => room.id === action.payload.id);
+        const index = state.availableRooms.findIndex(
+          (room) => room.id === action.payload.id
+        );
         if (index !== -1) {
           state.availableRooms[index] = action.payload;
         }
@@ -113,7 +121,9 @@ const roomSlice = createSlice({
         state.loading = true;
       })
       .addCase(deleteRoom.fulfilled, (state, action) => {
-        state.availableRooms = state.availableRooms.filter(room => room.id !== action.payload);
+        state.availableRooms = state.availableRooms.filter(
+          (room) => room.id !== action.payload
+        );
         state.loading = false;
       })
       .addCase(deleteRoom.rejected, (state, action) => {
