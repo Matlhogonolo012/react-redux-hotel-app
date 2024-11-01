@@ -3,12 +3,16 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Footer from "../components/common/footer";
 import "/src/assets/styles/gallery.css"
+import Header from "../components/common/header";
 
 function Gallery() {
     return (
         <div className="gallery-container">
-            <Link to="/"><IoMdArrowRoundBack /></Link>
             
+            <Header/>
+            <Link to="/" className="back-link">
+      <IoMdArrowRoundBack />
+    </Link>
             <h1>
                 Take A Glimpse at Our Offering to you <SiExercism />
             </h1>

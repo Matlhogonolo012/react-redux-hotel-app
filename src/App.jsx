@@ -11,6 +11,7 @@ import BookingForm from "./pages/BookingForm";
 import PaymentPage from "./pages/payment";
 import Confirmation from "./pages/confirmation";
 import Gallery from "./pages/gallery";
+import ContactUs from "./pages/contactus";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/gallery" element={<Gallery/>}/>
+        <Route path="/contactus" element={<ContactUs/>}/>
     
       </Routes>
     </BrowserRouter>

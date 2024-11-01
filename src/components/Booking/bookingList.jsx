@@ -16,36 +16,31 @@ const BookingList = () => {
     }
   }, [dispatch, user]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="loading-message">Loading...</p>;
 
   return (
-    <div>
+    <div className="booking-list">
       <h2>Your Bookings</h2>
       {bookings.length === 0 ? (
         <p>No bookings found.</p>
       ) : (
         bookings.map((booking) => (
-          <div key={booking.id}>
+          <div className="booking-item" key={booking.id}>
             <p>Booking ID: {booking.id}</p>
             <p>Room Name: {booking.roomName}</p>
             <p>Check-in Date: {booking.checkInDate}</p>
             <p>Check-out Date: {booking.checkOutDate}</p>
-
             <button
+              className="favorite-button"
               onClick={() => {
-                const isFavorite = favoriteRooms.some(
-                  (room) => room.id === booking.id
-                );
+                const isFavorite = favoriteRooms.some((room) => room.id === booking.id);
                 if (!isFavorite) {
                   const favoriteData = {
                     id: booking.id,
                     name: booking.roomName,
                     userId: user.uid,
                   };
-                  console.log("Adding to favorites:", favoriteData);
                   dispatch(addFavoriteRoom(favoriteData));
-                } else {
-                  console.log("Room is already in favorites:", booking.id);
                 }
               }}
             >

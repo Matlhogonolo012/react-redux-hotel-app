@@ -1,7 +1,14 @@
-import "/src/assets/styles/header.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import "/src/assets/styles/header.css";
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="header">
       <img
@@ -9,7 +16,10 @@ function Header() {
         alt="Harmony Heights Logo"
         className="logo"
       />
-      <nav className="navigation">
+      <div className="hamburger" onClick={toggleMenu}>
+        &#9776; 
+      </div>
+      <nav className={`navigation ${isMenuOpen ? 'open' : ''}`}>
         <ul className="navList">
           <li>
             <Link to="/" className="navLink">
@@ -17,31 +27,27 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="navLink">
+            <Link to="/contactus" className="navLink">
               Contact Us
             </Link>
           </li>
           <li>
             <Link to="/gallery" className="navLink">
-             Gallery
+              Gallery
             </Link>
           </li>
         </ul>
       </nav>
       <div className="subNav">
         <nav className="facilitiesNav">
-          <ul className="facilitiesList">
-            <li>
-              <Link to="/facilities" className="facilitiesLink">
-                Facilities
-              </Link>
-            </li>
+        
+            
             <li>
               <Link to="/BookingForm" className="facilitiesLink">
                 Book Now
               </Link>
             </li>
-          </ul>
+         
         </nav>
         <div className="authButtons">
           <Link to="/signupPage">

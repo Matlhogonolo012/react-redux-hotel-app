@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchRatings,
-  addRating,
-  deleteRating,
-} from "/src/redux/slices/ratingSlice.jsx";
+import { fetchRatings, addRating, deleteRating } from "/src/redux/slices/ratingSlice.jsx";
 import { fetchBookings } from "/src/redux/slices/bookingSlice.jsx";
 import { MdStarRate } from "react-icons/md";
 import { FaCommentDots } from "react-icons/fa";
@@ -44,27 +40,28 @@ const RateBooking = () => {
     dispatch(deleteRating(ratingId));
   };
 
-  if (bookingsLoading || ratingsLoading) return <p>Loading your bookings and ratings...</p>;
+  if (bookingsLoading || ratingsLoading) return <p className="loading-message">Loading your bookings and ratings...</p>;
 
   return (
-    <div>
+    <div className="rating-list">
       <h2>Rate Your Bookings</h2>
       {bookings.map((booking) => {
         const userRating = ratings.find((rating) => rating.roomId === booking.roomId);
         return (
-          <div key={booking.id}>
+          <div className="rating-item" key={booking.id}>
             <p>Room: {booking.roomName}</p>
             {userRating ? (
               <div>
                 <p>Current Rating: {userRating.rating}</p>
                 <p>Comment: {userRating.comment}</p>
-                <button onClick={() => handleDeleteRating(userRating.id)}>Delete Rating</button>
+                <button className="delete-rating-button" onClick={() => handleDeleteRating(userRating.id)}>Delete Rating</button>
               </div>
             ) : (
               <>
                 <label>
                 <MdStarRate /> Rate:
                   <select
+                    className="rating-select"
                     value={selectedRating[booking.roomId] || ""}
                     onChange={(e) => handleRatingChange(booking.roomId, e.target.value)}
                   >
@@ -77,11 +74,12 @@ const RateBooking = () => {
                   </select>
                 </label> <FaCommentDots />
                 <textarea
+                  className="comment-textarea"
                   placeholder="Add a comment"
                   value={selectedComment[booking.roomId] || ""}
                   onChange={(e) => handleCommentChange(booking.roomId, e.target.value)}
                 />
-                <button onClick={() => handleSubmitRating(booking.roomId)}>Submit Rating</button>
+                <button className="submit-rating-button" onClick={() => handleSubmitRating(booking.roomId)}>Submit Rating</button>
               </>
             )}
           </div>

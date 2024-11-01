@@ -24,8 +24,6 @@ const Favorites = () => {
       const result = await dispatch(removeFavoriteRoom(roomId));
       if (removeFavoriteRoom.fulfilled.match(result)) {
         console.log(`Successfully removed room with ID: ${roomId}`);
-        
-
       } else {
         setRemovalError(result.payload);
         console.error(`Failed to remove room with ID: ${roomId}`, result.payload);
@@ -38,22 +36,22 @@ const Favorites = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="loading-message">Loading...</p>;
   if (error) return <p>Error: {error}</p>; 
 
   return (
-    <div>
+    <div className="favorites-list">
       <h2>Your Favorite Rooms</h2>
       {favoriteRooms.length === 0 ? (
         <p>No favorite rooms yet.</p>
       ) : (
         favoriteRooms.map((room) => (
-          <div key={room.id}>
+          <div className="favorite-item" key={room.id}>
             <p>Room Name: {room.name}</p>
-            <button onClick={() => handleRemoveFavorite(room.id)}>
+            <button className="remove-favorite-button" onClick={() => handleRemoveFavorite(room.id)}>
               {removalLoading ? "Removing..." : "Remove from Favorites"}
             </button>
-            {removalError && <p style={{ color: 'red' }}>Error: {removalError}</p>}
+            {removalError && <p className="error-message">Error: {removalError}</p>}
           </div>
         ))
       )}

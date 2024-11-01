@@ -2,6 +2,7 @@ import { useState } from "react";
 import { auth } from "/src/config/firebase.jsx";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +25,9 @@ const ForgotPassword = () => {
   return (
     <div className="forgot-password-container">
 
-<IoMdArrowRoundBack />
+<Link to="/login" className="back-link">
+      <IoMdArrowRoundBack />
+    </Link>
       <h2>Forgot Password</h2>
       <form onSubmit={handleResetPassword}>
         <input

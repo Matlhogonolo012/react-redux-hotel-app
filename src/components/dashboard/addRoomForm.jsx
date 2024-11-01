@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MdAddPhotoAlternate } from "react-icons/md";
 import { IoMdRemoveCircleOutline } from "react-icons/io";
 import { MdOutlineSmokingRooms } from "react-icons/md";
+import "/src/assets/styles/addroom.css"
 
 const AddRoomForm = ({ onSubmit, initialData }) => {
   const [name, setName] = useState("");
@@ -41,8 +42,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
   };
 
   const addPhotoField = () => setPhotos([...photos, ""]);
-  const removePhotoField = (index) =>
-    setPhotos(photos.filter((_, i) => i !== index));
+  const removePhotoField = (index) => setPhotos(photos.filter((_, i) => i !== index));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,8 +84,9 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="add-room-form" onSubmit={handleSubmit}>
       <input
+        className="add-room-form__input"
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -93,6 +94,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         required
       />
       <input
+        className="add-room-form__input"
         type="text"
         value={roomType}
         onChange={(e) => setRoomType(e.target.value)}
@@ -100,6 +102,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         required
       />
       <input
+        className="add-room-form__input"
         type="text"
         value={bedType}
         onChange={(e) => setBedType(e.target.value)}
@@ -107,6 +110,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         required
       />
       <input
+        className="add-room-form__input"
         type="number"
         value={capacity}
         onChange={(e) => setCapacity(e.target.value)}
@@ -114,6 +118,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         required
       />
       <input
+        className="add-room-form__input"
         type="text"
         value={size}
         onChange={(e) => setSize(e.target.value)}
@@ -121,6 +126,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         required
       />
       <input
+        className="add-room-form__input"
         type="number"
         value={pricePerNight}
         onChange={(e) => setPricePerNight(e.target.value)}
@@ -128,6 +134,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         required
       />
       <input
+        className="add-room-form__input"
         type="number"
         value={maxGuests}
         onChange={(e) => setMaxGuests(e.target.value)}
@@ -135,50 +142,61 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         required
       />
       <input
+        className="add-room-form__input"
         type="text"
         value={inRoomAmenities}
         onChange={(e) => setInRoomAmenities(e.target.value)}
         placeholder="In-room Amenities (comma separated)"
         required
       />
-      <label>
+      <label className="add-room-form__label">
         <MdOutlineSmokingRooms /> Smoking Allowed:
         <input
+          className="add-room-form__checkbox"
           type="checkbox"
           checked={smokingAllowed}
           onChange={(e) => setSmokingAllowed(e.target.checked)}
         />
       </label>
 
-      {/* New checkbox for room availability */}
-      <label>
+      <label className="add-room-form__label">
         Room Available:
         <input
+          className="add-room-form__checkbox"
           type="checkbox"
           checked={isAvailable}
           onChange={(e) => setIsAvailable(e.target.checked)}
         />
       </label>
 
-      <h3>Photos:</h3>
-      {photos.map((url, index) => (
-        <div key={index}>
-          <input
-            type="url"
-            value={url}
-            onChange={(e) => handlePhotoChange(index, e.target.value)}
-            placeholder={`Photo URL ${index + 1}`}
-          />
-          <button type="button" onClick={() => removePhotoField(index)}>
-            Remove <IoMdRemoveCircleOutline />
-          </button>
-        </div>
-      ))}
-      <button type="button" onClick={addPhotoField}>
-        Add Another Photo <MdAddPhotoAlternate />
-      </button>
+      <h3 className="add-room-form__heading">Photos:</h3>
+      <div className="add-room-form__photo-section">
+        {photos.map((url, index) => (
+          <div key={index}>
+            <input
+              className="add-room-form__input"
+              type="url"
+              value={url}
+              onChange={(e) => handlePhotoChange(index, e.target.value)}
+              placeholder={`Photo URL ${index + 1}`}
+            />
+            <button
+              className="add-room-form__remove-button"
+              type="button"
+              onClick={() => removePhotoField(index)}
+            >
+              Remove <IoMdRemoveCircleOutline />
+            </button>
+          </div>
+        ))}
+        <button className="add-room-form__button" type="button" onClick={addPhotoField}>
+          Add Another Photo <MdAddPhotoAlternate />
+        </button>
+      </div>
 
-      <button type="submit">{initialData ? "Update Room" : "Add Room"}</button>
+      <button className="add-room-form__button" type="submit">
+        Submit Room
+      </button>
     </form>
   );
 };
