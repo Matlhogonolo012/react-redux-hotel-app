@@ -12,6 +12,8 @@ import PaymentPage from "./pages/payment";
 import Confirmation from "./pages/confirmation";
 import Gallery from "./pages/gallery";
 import ContactUs from "./pages/contactus";
+import TermsAndConditions from "/src/pages/terms-privacy.jsx/terms-and-conditions.jsx"
+import PrivacyPolicy from "/src/pages/terms-privacy.jsx/terms-and-conditions.jsx"
 
 function App() {
   return (
@@ -30,7 +32,8 @@ function App() {
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/gallery" element={<Gallery/>}/>
         <Route path="/contactus" element={<ContactUs/>}/>
-    
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+        <Route path="/terms-and-conditions" element={<TermsAndConditions/>}/>
       </Routes>
     </BrowserRouter>
   );

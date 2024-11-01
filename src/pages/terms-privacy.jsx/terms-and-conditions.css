@@ -1,0 +1,35 @@
+.terms-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.terms-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.terms-header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.terms-main {
+    padding: 0 20px;
+}
+
+.terms-main section {
+    margin-bottom: 20px;
+}
+
+.terms-main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.terms-main p {
+    margin: 0 0 10px;
+    font-size: 1rem;
+}

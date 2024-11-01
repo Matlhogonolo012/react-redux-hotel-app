@@ -29,9 +29,7 @@ function Gallery() {
                 <img className="gallery-image" src="/src/assets/images/pexels-pixabay-261041.jpg" alt="image-10" />
                 <img className="gallery-image" src="/src/assets/images/pexels-zachtheshoota-1838640.jpg" alt="image-11" />
             </div>
-            <footer>
                 <Footer />
-            </footer>
         </div>
     );
 }

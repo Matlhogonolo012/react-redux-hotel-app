@@ -44,6 +44,16 @@ Navigate to the project directory:
 ```
 cd hotel-app
 ```
+3. Create `.env` file:
+
+```
+FIREBASE_API_KEY=AIzaSyCScRBxt00Bg2CWOqU5gKfSfzxvsjwhpCE
+FIREBASE_AUTH_DOMAIN=react-redux-hotel-app-30d0b.firebaseapp.com
+FIREBASE_PROJECT_ID=react-redux-hotel-app-30d0b
+FIREBASE_STORAGE_BUCKET=react-redux-hotel-app-30d0b.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=984495412645
+FIREBASE_APP_ID=1:984495412645:web:14722413d8da0592c9844c
+```
 3. **Change branch from main to dev:**
 
 ``` 
@@ -56,16 +66,10 @@ git checkout dev
    ```
 
 ## 🌐 Usage
-- Access **Admin Dashboard** to add rooms and set availability.
+- Access **Admin Dashboard** to view, add, edit, delete and search rooms, and also set their availability.
 - **User Dashboard** allows users to view bookings, rate them, and add favorites.
 - Process payments with **PayPal** during booking.
 
-## 📜 Key Files and Directories
-
-- **`src/components/`**: Contains reusable components like Auth, Booking, and Dashboard components.
-- **`src/redux/`**: Redux store and slices for managing state.
-- **`src/services/firebase.js`**: Firebase setup and configuration.
-- **`src/utils/`**: Utility functions like date formatting and price calculation.
 
 ## 🔐 Authentication and Authorization
 - Users and Admins must log in via Firebase Authentication.

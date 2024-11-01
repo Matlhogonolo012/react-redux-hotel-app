@@ -16,15 +16,14 @@ function Footer() {
           <div className="navColumn">
             <h3 className="navTitle">Product</h3>
             <ul className="navList">
-              <li><Link to="/rooms">Rooms</Link></li>
-              <li><Link to="/facilities">Facilities</Link></li>
+              
             </ul>
           </div>
           <div className="navColumn">
-            <h3 className="navTitle">Company</h3>
+            <h3 className="navTitle">Harmony Heights</h3>
             <ul className="navList">
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/book">Book Now</Link></li>
+              <li><Link to="/gallery">Gallery</Link></li>
+              <li><Link to="/bookingform">Book Now</Link></li>
             </ul>
           </div>
         </nav>
@@ -48,7 +47,7 @@ function Footer() {
         </div>
       </div>
       <div className="footerBottom">
-        <p className="copyright">© 2024 Brand, Inc. • Privacy • Terms •</p>
+        <p className="copyright">© 2024 Harmony Heights • <Link to= '/privacy-policy'> Privacy </Link>• <Link to = '/termsandconditions'>Terms </Link> •</p>
         <div className="socialLinks">
           <a href="#" aria-label="Facebook">
             <img 

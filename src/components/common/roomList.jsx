@@ -13,16 +13,15 @@ const RoomList = () => {
     dispatch(fetchRooms());
   }, [dispatch]);
 
-  // Filter rooms based on the search query
+
   const filteredRooms = availableRooms.filter(room =>
     room.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <div className="room-list-container">
-      <h1>Available Rooms</h1>
+      <h1>Our Rooms</h1>
 
-      {/* Search Input */}
       <input
         type="text"
         placeholder="Search rooms..."
