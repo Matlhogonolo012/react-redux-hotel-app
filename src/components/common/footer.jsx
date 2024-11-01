@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '/src/assets/styles/footer.css'; 
-
+import { MdAttachEmail } from "react-icons/md";
 function Footer() {
   return (
     <footer className="footer">
@@ -34,11 +34,8 @@ function Footer() {
           <form className="subscribeForm">
             <label htmlFor="emailInput" className="visuallyHidden">Enter your email</label>
             <div className="inputWrapper">
-              <img 
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e41537872f59b21878caa5c3455dabfcf645305ea59656fd4035b1fab473bcc43?placeholderIfAbsent=true&apiKey=765253808f7647bdbf2fb4dbfdd1a5c2" 
-                alt="" 
-                className="emailIcon" 
-              />
+            <MdAttachEmail />
+              
               <input 
                 type="email" 
                 id="emailInput" 

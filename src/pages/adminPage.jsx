@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AddRoomForm from "/src/components/dashboard/AddRoomForm.jsx";
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 import {
   fetchRooms,
   createRoom,
@@ -72,28 +74,10 @@ const AdminPage = () => {
                 {room.amenities?.inRoom?.length
                   ? room.amenities.inRoom.join(", ")
                   : "N/A"}
-                ), Bathroom (
-                {room.amenities?.bathroom?.length
-                  ? room.amenities.bathroom.join(", ")
-                  : "N/A"}
-                ), Other (
-                {room.amenities?.otherFeatures?.length
-                  ? room.amenities.otherFeatures.join(", ")
-                  : "N/A"}
                 )
               </p>
-              <p>
-                Policies: Check-in ({room.policies?.checkIn || "N/A"}),
-                Check-out ({room.policies?.checkOut || "N/A"}), Cancellation (
-                {room.policies?.cancellationPolicy || "N/A"}), Smoking Allowed (
-                {room.policies?.smoking ? "Yes" : "No"})
-              </p>
-              <p>
-                Additional Info: Room Service (
-                {room.additionalInfo?.roomService || "N/A"}), Accessibility (
-                {room.additionalInfo?.accessibility || "N/A"}), Special Offers (
-                {room.additionalInfo?.specialOffers || "N/A"})
-              </p>
+              <p>{room.smokingAllowed ? "Smoking is allowed." : "Smoking is not allowed."}</p>
+  
               <p>
                 Photos:
                 {room.photos.length > 0 ? (
@@ -115,8 +99,20 @@ const AdminPage = () => {
                   <span>No Photos Available</span>
                 )}
               </p>
-              <button onClick={() => handleEditRoom(room)}>Edit</button>
-              <button onClick={() => handleDeleteRoom(room.id)}>Delete</button>
+              <p>
+                {room.isAvailable ? (
+                  <span style={{ color: 'green' }}>Room is Available</span>
+                ) : (
+                  <span style={{ color: 'red' }}>Room is Not Available</span>
+                )}
+              </p>
+              <button onClick={() => handleEditRoom(room)}>
+                <FaEdit /> Edit
+              </button>
+              <button onClick={() => handleDeleteRoom(room.id)}>
+                {" "}
+                <MdDeleteForever /> Delete
+              </button>
             </li>
           ))}
         </ul>

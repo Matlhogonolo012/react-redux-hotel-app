@@ -22,34 +22,51 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submitting login:", { email, password });
-
-    const resultAction = await dispatch(loginUser({ email, password }));
-
-    if (loginUser.fulfilled.match(resultAction)) {
-      const userRole = resultAction.payload.role?.trim().toLowerCase();
-      console.log("User Role:", userRole);
-
-      if (userRole === "admin") {
-        alert("Admins cannot book rooms. Redirecting to the booking form.");
-        navigate("/BookingForm");
-        return;
-      }
-
-      console.log("Is Booking:", isBooking);
-
-      if (isBooking) {
-        alert("Redirecting to payment page for your booking.");
-        navigate("/payment");
-        localStorage.removeItem("bookingDetails");
+  
+    try {
+      const resultAction = await dispatch(loginUser({ email, password }));
+  
+      if (loginUser.fulfilled.match(resultAction)) {
+        const userRole = resultAction.payload?.role?.trim().toLowerCase();
+        console.log("User Role:", userRole);
+  
+        // Block admin users from booking and redirect them to the admin page
+        if (userRole === "admin") {
+          if (isBooking) {
+            alert("Admins cannot proceed with bookings. Redirecting to the admin page.");
+          } else {
+            alert("Welcome, Admin. Redirecting to the admin page.");
+          }
+          navigate("/adminPage");
+          return;
+        }
+  
+        console.log("Is Booking:", isBooking);
+  
+        // Handle non-admin users with a booking in progress
+        if (isBooking) {
+          const bookingDetails = JSON.parse(localStorage.getItem("bookingDetails"));
+          if (bookingDetails && Object.keys(bookingDetails).length > 0) {
+            alert("Redirecting to payment page for your booking.");
+            navigate("/payment");
+            localStorage.removeItem("bookingDetails");
+          } else {
+            alert("Booking details are missing or invalid. Redirecting to user page.");
+            navigate("/userPage");
+          }
+        } else {
+          navigate("/userPage");
+        }
       } else {
-        navigate("/userPage");
+        console.error("Login failed:", resultAction.payload || "No payload returned");
+        alert("Login failed. Please check your credentials and try again.");
       }
-    } else {
-      console.error("Login failed:", resultAction.payload);
-      alert("Login failed. Please check your credentials and try again.");
+    } catch (err) {
+      console.error("An unexpected error occurred during login:", err);
+      alert("An unexpected error occurred. Please try again later.");
     }
   };
-
+  
   return (
     <form onSubmit={handleSubmit} className="login-form">
       <h2 className="form-title">Welcome Back</h2>

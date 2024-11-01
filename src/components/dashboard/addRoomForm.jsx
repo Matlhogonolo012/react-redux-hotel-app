@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { MdAddPhotoAlternate } from "react-icons/md";
+import { IoMdRemoveCircleOutline } from "react-icons/io";
+import { MdOutlineSmokingRooms } from "react-icons/md";
 
 const AddRoomForm = ({ onSubmit, initialData }) => {
   const [name, setName] = useState("");
@@ -11,6 +14,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
   const [inRoomAmenities, setInRoomAmenities] = useState("");
   const [smokingAllowed, setSmokingAllowed] = useState(false);
   const [photos, setPhotos] = useState([""]);
+  const [isAvailable, setIsAvailable] = useState(true);
 
   useEffect(() => {
     if (initialData) {
@@ -24,6 +28,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
       setInRoomAmenities(initialData.amenities?.inRoom.join(", ") || "");
       setSmokingAllowed(initialData.smokingAllowed || false);
       setPhotos(initialData.photos || [""]);
+      setIsAvailable(initialData.isAvailable ?? true);
     } else {
       resetForm();
     }
@@ -54,6 +59,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         inRoom: inRoomAmenities.split(",").map((item) => item.trim()),
       },
       smokingAllowed,
+      isAvailable,
       photos: photos.filter((url) => url !== ""),
     };
 
@@ -74,6 +80,7 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
     setInRoomAmenities("");
     setSmokingAllowed(false);
     setPhotos([""]);
+    setIsAvailable(true);
   };
 
   return (
@@ -135,11 +142,21 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
         required
       />
       <label>
-        Smoking Allowed:
+        <MdOutlineSmokingRooms /> Smoking Allowed:
         <input
           type="checkbox"
           checked={smokingAllowed}
           onChange={(e) => setSmokingAllowed(e.target.checked)}
+        />
+      </label>
+
+      {/* New checkbox for room availability */}
+      <label>
+        Room Available:
+        <input
+          type="checkbox"
+          checked={isAvailable}
+          onChange={(e) => setIsAvailable(e.target.checked)}
         />
       </label>
 
@@ -153,12 +170,12 @@ const AddRoomForm = ({ onSubmit, initialData }) => {
             placeholder={`Photo URL ${index + 1}`}
           />
           <button type="button" onClick={() => removePhotoField(index)}>
-            Remove
+            Remove <IoMdRemoveCircleOutline />
           </button>
         </div>
       ))}
       <button type="button" onClick={addPhotoField}>
-        Add Another Photo
+        Add Another Photo <MdAddPhotoAlternate />
       </button>
 
       <button type="submit">{initialData ? "Update Room" : "Add Room"}</button>

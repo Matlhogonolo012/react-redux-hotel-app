@@ -1,3 +1,10 @@
+.homeLandingPage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+
 .mainContent {
   display: flex;
   flex-direction: column;
@@ -8,15 +15,34 @@
   padding: 13px 69px 207px 8px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .mainContent {
-    padding: 0 20px 100px 20px;
+    padding: 10px 40px 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  .mainContent {
+    padding: 0 20px 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 0 15px 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    padding: 0 10px 60px;
   }
 }
 
 .heroSection {
   position: relative;
   align-self: stretch;
+  text-align: center;
 }
 
 .heroImage {
@@ -31,7 +57,6 @@
 .heroTitle {
   position: relative;
   color: #fff;
-  text-align: center;
   margin-top: 73px;
   font: 700 64px/1 Alegreya, -apple-system, Roboto, Helvetica, sans-serif;
 }
@@ -43,37 +68,65 @@
   }
 }
 
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroTitle {
+    font-size: 28px;
+  }
+}
+
 .heroSubtitle {
   position: relative;
   color: #fff;
-  text-align: center;
   margin: 14px 0 -41px;
   font: 500 24px Arima, sans-serif;
 }
 
-.infoContent {
-  align-self: center;
-  z-index: 10;
-  margin-top: 75px;
+@media (max-width: 768px) {
+  .heroSubtitle {
+    font-size: 20px;
+  }
+}
 
+@media (max-width: 576px) {
+  .heroSubtitle {
+    font-size: 18px;
+  }
+}
+.infoSection {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 75px;
+}
+
+.infoContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .infoImage {
+  flex: 1;
   aspect-ratio: 1.49;
-  object-fit: contain;
-  object-position: center;
-  width: 100%;
+  object-fit: cover;
   border-radius: 6px;
-  flex-grow: 1;
+  max-width: 50%;
+  height: auto;
 }
 
 .infoText {
+  flex: 1;
+  padding: 20px;
   color: #907965;
-  align-self: stretch;
-  margin: auto 0;
-  font: 400 36px Jomolhari, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .locationHighlight {
@@ -101,18 +154,50 @@
 }
 
 @media (max-width: 991px) {
+  .infoSection {
+    flex-direction: column;
+  }
+
   .infoContent {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    margin-top: 40px;
   }
 
   .infoImage {
-    margin-top: 40px;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   .infoText {
-    margin-top: 40px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoImage {
+    max-width: 70%;
+  }
+
+  .infoText {
+    font-size: 18px;
+  }
+
+  .infoDescription,
+  .infoAmenities {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .infoImage {
+    max-width: 90%;
+  }
+
+  .infoText {
+    font-size: 16px;
+  }
+
+  .infoDescription,
+  .infoAmenities {
+    font-size: 14px;
   }
 }

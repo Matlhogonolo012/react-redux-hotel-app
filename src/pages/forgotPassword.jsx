@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { auth } from "/src/config/firebase.jsx";
 import { sendPasswordResetEmail } from "firebase/auth";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -16,12 +17,14 @@ const ForgotPassword = () => {
       await sendPasswordResetEmail(auth, email);
       setMessage("Password reset email sent!");
     } catch (err) {
-      setError("Failed to send password reset email.");
+      setError(err);
     }
   };
 
   return (
     <div className="forgot-password-container">
+
+<IoMdArrowRoundBack />
       <h2>Forgot Password</h2>
       <form onSubmit={handleResetPassword}>
         <input

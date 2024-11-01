@@ -28,7 +28,11 @@ export const loginUser = createAsyncThunk(
         throw new Error("User role not found");
       }
 
-      return { ...userCredential.user, role };
+      const userData = { ...userCredential.user, role };
+      localStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem("isAuthenticated", true);
+
+      return userData;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -47,7 +51,12 @@ export const signupUser = createAsyncThunk(
       await setDoc(doc(db, "users", userCredential.user.uid), {
         role: role || "user",
       });
-      return { ...userCredential.user, role };
+
+      const userData = { ...userCredential.user, role };
+      localStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem("isAuthenticated", true);
+
+      return userData;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -59,12 +68,24 @@ export const logoutUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       await signOut(auth);
+
+      localStorage.removeItem("user");
+      localStorage.removeItem("isAuthenticated");
       return true;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
+export const loadUserFromLocalStorage = () => (dispatch) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+
+  if (user && isAuthenticated) {
+    dispatch(loginUser.fulfilled(user));
+  }
+};
 
 const authSlice = createSlice({
   name: "auth",

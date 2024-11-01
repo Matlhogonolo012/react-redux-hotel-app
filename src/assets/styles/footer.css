@@ -1,20 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
 .footer {
   background-color: rgba(204, 202, 201, 0.4);
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 20px;
+  overflow: hidden;
 }
 
 .footerContent {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .footerNav {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .navTitle {
@@ -40,6 +49,7 @@
 
 .newsletter {
   max-width: 300px;
+  flex: 1;
 }
 
 .newsletterTitle {
@@ -77,6 +87,7 @@
   background-color: #f3f4f6;
   border-radius: 6px;
   margin-bottom: 16px;
+  padding: 5px;
 }
 
 .emailIcon {
@@ -91,6 +102,7 @@
   color: #bcc1ca;
   font: 400 14px Arima, sans-serif;
   width: 100%;
+  padding: 10px;
 }
 
 .subscribeButton {
@@ -99,8 +111,13 @@
   font: 400 14px Arima, sans-serif;
   border: none;
   border-radius: 6px;
-  padding: 7px 25px;
+  padding: 10px 20px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.subscribeButton:hover {
+  background-color: #8b7b5a;
 }
 
 .footerBottom {
@@ -125,7 +142,6 @@
   height: 24px;
 }
 
-
 @media (max-width: 1199px) {
   .footer {
     padding: 40px 20px;
@@ -137,10 +153,12 @@
 
   .footerNav {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .newsletter {
     max-width: 100%;
+    margin-top: 20px;
   }
 
   .footerBottom {
@@ -159,11 +177,6 @@
   }
 
   .footerNav {
-    width: 100%;
-    align-items: flex-start;
-  }
-
-  .navColumn {
     width: 100%;
   }
 

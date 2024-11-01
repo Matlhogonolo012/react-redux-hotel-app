@@ -23,7 +23,7 @@
   
   .not-found-link {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #8b560f;
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
@@ -31,6 +31,6 @@
   }
   
   .not-found-link:hover {
-    background-color: #0056b3;
+    background-color: #e2c3a5;
   }
   

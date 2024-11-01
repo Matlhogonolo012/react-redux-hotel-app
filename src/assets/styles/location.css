@@ -21,10 +21,9 @@
 }
 
 .location-map {
-  aspect-ratio: 2.22;
-  object-fit: contain;
-  object-position: center;
-  width: 40%;
+  aspect-ratio: 16 / 9;
+  width: 60%;
+  height: 400px;
 }
 
 .address-container {
@@ -42,7 +41,8 @@
   font: 400 20px Jomolhari, sans-serif;
 }
 
-@media (max-width: 991px) {
+
+@media (max-width: 1200px) {
   .location-section {
     padding: 40px 20px;
   }
@@ -54,14 +54,50 @@
 
   .location-content {
     flex-direction: column;
-  }
-
-  .location-map,
-  .address-container {
-    width: 100%;
+    align-items: center;
   }
 
   .location-map {
+    width: 100%;
+    height: 300px;
     margin-bottom: 20px;
+  }
+
+  .address-container {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .location-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .address-title {
+    font-size: 20px;
+  }
+
+  .address-details {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-title {
+    font-size: 28px;
+  }
+
+  .address-title {
+    font-size: 18px;
+  }
+
+  .address-details {
+    font-size: 16px;
+  }
+
+  .location-map {
+    height: 250px;
   }
 }

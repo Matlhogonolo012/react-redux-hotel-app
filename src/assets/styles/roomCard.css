@@ -1,9 +1,4 @@
 .room-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 15px 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
 }
 

@@ -5,11 +5,15 @@ import { fetchRooms } from "/src/redux/slices/roomSlice.jsx";
 import { calculateDaysBetween, formatDate } from "../utils/dateUtils";
 import { calculateTotalPrice } from "../utils/priceUtils";
 import { useNavigate } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import Header from "../components/common/header";
+import RoomList from "../components/common/roomList";
+import { FaCalendarPlus } from "react-icons/fa6";
 
 const BookingForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { availableRooms, loading, error } = useSelector(
+  const { availableRooms} = useSelector(
     (state) => state.rooms
   );
   const { user } = useSelector((state) => state.auth);
@@ -68,7 +72,7 @@ const BookingForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!user) {
-      alert("Please log in to book a room.");
+      alert("Please log in to book a room, then go back to the booking page to continue with booking");
       navigate("/login");
       return;
     }
@@ -113,12 +117,14 @@ const BookingForm = () => {
       });
   };
 
-  if (loading) return <p>Loading rooms...</p>;
-  if (error) return <p>Error fetching rooms: {error}</p>;
-
   return (
+    <div>
     <form onSubmit={handleSubmit}>
-      <h2>Book a Room</h2>
+<header>
+  <Header/>
+</header>
+<IoMdArrowRoundBack />
+      <h2>Book a Room <FaCalendarPlus /></h2>
 
       <label>
         Select Room:
@@ -133,7 +139,7 @@ const BookingForm = () => {
           <option value="">--Select a Room--</option>
           {availableRooms.map((room) => (
             <option key={room.id} value={room.id}>
-              {room.name} - ${room.pricePerNight}/night
+              {room.name} - R{room.pricePerNight}/night
             </option>
           ))}
         </select>
@@ -181,8 +187,24 @@ const BookingForm = () => {
       <p>Total Days: {totalDays}</p>
       <p>Total Price: R{totalPrice.toFixed(2)}</p>
 
-      <button type="submit">Book Now</button>
+      <button 
+          type="submit" 
+          style={{
+            backgroundColor: selectedRoom && !selectedRoom.isAvailable ? 'gray' : '#007bff', 
+            cursor: selectedRoom && !selectedRoom.isAvailable ? 'not-allowed' : 'pointer',
+            color: 'white'
+          }} 
+          disabled={!selectedRoom || !selectedRoom.isAvailable} 
+        >
+          Book Now
+        </button>
     </form>
+
+    <main>
+      <RoomList/>
+    </main>
+    </div>
+    
   );
 };
 
