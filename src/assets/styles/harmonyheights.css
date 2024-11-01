@@ -1,0 +1,203 @@
+.homeLandingPage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 640px;
+  width: 100%;
+  align-items: center;
+  padding: 13px 69px 207px 8px;
+}
+
+@media (max-width: 1200px) {
+  .mainContent {
+    padding: 10px 40px 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  .mainContent {
+    padding: 0 20px 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 0 15px 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mainContent {
+    padding: 0 10px 60px;
+  }
+}
+
+.heroSection {
+  position: relative;
+  align-self: stretch;
+  text-align: center;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroTitle {
+  position: relative;
+  color: #fff;
+  margin-top: 73px;
+  font: 700 64px/1 Alegreya, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+@media (max-width: 991px) {
+  .heroTitle {
+    margin-top: 40px;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroTitle {
+    font-size: 28px;
+  }
+}
+
+.heroSubtitle {
+  position: relative;
+  color: #fff;
+  margin: 14px 0 -41px;
+  font: 500 24px Arima, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .heroSubtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroSubtitle {
+    font-size: 18px;
+  }
+}
+.infoSection {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 75px;
+}
+
+.infoContent {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.infoImage {
+  flex: 1;
+  aspect-ratio: 1.49;
+  object-fit: cover;
+  border-radius: 6px;
+  max-width: 50%;
+  height: auto;
+}
+
+.infoText {
+  flex: 1;
+  padding: 20px;
+  color: #907965;
+  display: flex;
+  flex-direction: column;
+}
+
+.locationHighlight {
+  font-family: Alegreya, sans-serif;
+  font-size: 20px;
+  color: #8e4f0b;
+}
+
+.infoTitle {
+  font-family: Alegreya, sans-serif;
+  color: #1e1e1e;
+  margin-bottom: 20px;
+}
+
+.infoDescription,
+.infoAmenities {
+  font-family: Arima, sans-serif;
+  font-size: 20px;
+  color: #575656;
+  margin-bottom: 20px;
+}
+
+.infoAmenities {
+  color: #000;
+}
+
+@media (max-width: 991px) {
+  .infoSection {
+    flex-direction: column;
+  }
+
+  .infoContent {
+    flex-direction: column;
+  }
+
+  .infoImage {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .infoText {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoImage {
+    max-width: 70%;
+  }
+
+  .infoText {
+    font-size: 18px;
+  }
+
+  .infoDescription,
+  .infoAmenities {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .infoImage {
+    max-width: 90%;
+  }
+
+  .infoText {
+    font-size: 16px;
+  }
+
+  .infoDescription,
+  .infoAmenities {
+    font-size: 14px;
+  }
+}

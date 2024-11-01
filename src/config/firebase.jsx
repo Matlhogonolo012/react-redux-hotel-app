@@ -1,19 +1,22 @@
 import { initializeApp } from "firebase/app";
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBi1to0YStuWtGH2344G1pBuc0CsYFi0_A",
-  authDomain: "react-redux-hotel-app.firebaseapp.com",
-  projectId: "react-redux-hotel-app",
-  storageBucket: "react-redux-hotel-app.appspot.com",
-  messagingSenderId: "277832684083",
-  appId: "1:277832684083:web:1bff6cf1fc65a2cac94946"
+  apiKey: process.env.FIREBASE_API_KEY ,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET ,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID ,
+  appId: process.env.FIREBASE_APP_ID
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-const auth = firebaseApp.auth();
-const db = firebaseApp.firestore();
+const firebaseApp=initializeApp(firebaseConfig);
+
+const auth = getAuth(firebaseApp);
+const db = getFirestore(firebaseApp);
 
 export { auth, db };

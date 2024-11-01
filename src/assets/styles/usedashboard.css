@@ -1,0 +1,146 @@
+.loading-message {
+    text-align: center;
+    color: #8B4513;
+  }
+  
+  .booking-list,
+  .favorites-list,
+  .rating-list {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-item,
+  .favorite-item,
+  .rating-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .favorite-button,
+  .remove-favorite-button,
+  .submit-rating-button,
+  .delete-rating-button {
+    background-color: #8B4513;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .favorite-button:hover,
+  .remove-favorite-button:hover,
+  .submit-rating-button:hover,
+  .delete-rating-button:hover {
+    background-color: #6f3c0f;
+  }
+  
+  .comment-textarea {
+    width: 100%;
+    height: 60px;
+    margin-top: 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 8px;
+  }
+  
+  .rating-select {
+    margin-top: 10px;
+    padding: 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .booking-list h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .booking-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-item p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .add-to-favorites-button {
+    background-color: #ff4757;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-favorites-button:hover {
+    background-color: #e84118;
+  }
+  
+  .add-to-favorites-button svg {
+    margin-left: 5px;
+  }
+  
+ 
+  @media (max-width: 600px) {
+    .booking-list,
+    .favorites-list,
+    .rating-list {
+      padding: 15px;
+      margin: 10px;
+    }
+  
+    .booking-item,
+    .favorite-item,
+    .rating-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .booking-item p {
+      margin: 3px 0;
+    }
+  
+    .add-to-favorites-button,
+    .favorite-button,
+    .remove-favorite-button,
+    .submit-rating-button,
+    .delete-rating-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  
+  @media (min-width: 601px) and (max-width: 900px) {
+    .booking-item,
+    .favorite-item,
+    .rating-item {
+      padding: 12px;
+    }
+  
+    .booking-list h2 {
+      font-size: 20px;
+    }
+  }
+  

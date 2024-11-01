@@ -1,10 +1,15 @@
-import React from 'react';
-import SignupForm from '../components/Auth/SignupForm';
+import SignupForm from '/src/components/authentication/signUpForm.jsx';
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 const SignupPage = () => {
   return (
     <div>
-      <h1>Sign Up</h1>
+    <Link to="/" className="back-link">
+      <IoMdArrowRoundBack />
+    </Link>
+    
+  
       <SignupForm />
     </div>
   );
