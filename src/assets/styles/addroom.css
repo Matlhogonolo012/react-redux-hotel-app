@@ -1,0 +1,132 @@
+.add-room-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #c69c6d;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .add-room-form__input {
+    padding: 0.8rem;
+    border: 1px solid #8B4513;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: border 0.3s;
+    width: 100%;
+  }
+  
+  .add-room-form__input:focus {
+    border-color: #d69c6d;
+    outline: none;
+  }
+  
+  .add-room-form__checkbox {
+    margin-left: 0.5rem;
+  }
+  
+  .add-room-form__label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 18px;
+    color: #8B4513;
+  }
+  
+  .add-room-form__heading {
+    margin: 1.5rem 0 0.5rem;
+    color: #8B4513;
+    font-size: 20px;
+  }
+  
+  .add-room-form__button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #c69c6d;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-room-form__button:hover {
+    background-color: #a76b4e;
+  }
+  
+  .add-room-form__photo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .add-room-form__remove-button {
+    background: none;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 16px;
+    transition: text-decoration 0.3s;
+  }
+  
+  .add-room-form__remove-button:hover {
+    text-decoration: underline;
+  }
+  
+ 
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .add-room-form {
+      padding: 20px;
+    }
+  
+    .add-room-form__input,
+    .add-room-form__button {
+      font-size: 16px;
+    }
+  
+    .add-room-form__heading {
+      font-size: 18px;
+    }
+  
+    .add-room-form__photo-section {
+      gap: 0.5rem;
+    }
+  }
+  

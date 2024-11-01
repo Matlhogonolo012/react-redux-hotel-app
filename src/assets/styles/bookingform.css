@@ -1,0 +1,106 @@
+
+  
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #8B4513;
+    margin-bottom: 15px;
+  }
+  
+  .booking-title {
+    font-size: 24px;
+    color: #8B4513;
+    margin-bottom: 20px;
+  }
+  
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    margin-right: 10px;
+    flex: 1;
+  }
+  
+  input[type="date"],
+  input[type="number"],
+  select {
+    flex: 2;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .room-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  .book-now-button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #c69c6d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+  }
+  
+  .book-now-button:hover {
+    background-color: #a76e54;
+  }
+  
+  .book-now-button.disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 600px) {
+    .booking-form-container {
+      padding: 15px;
+    }
+  
+    .booking-title {
+      font-size: 20px;
+    }
+  
+    .form-label {
+      font-size: 14px;
+    }
+  
+    .book-now-button {
+      font-size: 14px;
+    }
+  
+    .form-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .form-label {
+      margin-bottom: 5px;
+      margin-right: 0;
+    }
+  
+    input[type="date"],
+    input[type="number"],
+    select {
+      width: 100%;
+    }
+  }
+  

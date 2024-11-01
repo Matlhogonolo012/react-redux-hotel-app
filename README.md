@@ -1,1 +1,100 @@
-# react-redux-hotel-app
+# 🏨 Hotel Booking App
+
+Welcome to the Hotel Booking App! This project is a full-featured hotel booking application built with React, Redux, Firebase, and PayPal for handling bookings, managing rooms, and processing payments.
+
+## 🚀 Features
+- User-friendly **Room Booking** and **User Dashboard**
+- **Admin Dashboard** for managing rooms and availability
+- **Firebase Authentication** for secure login and signup
+- **Firebase Firestore** for storing user, booking, and room data
+- **Favorites** and **Rating** functionality for users to mark and review previous bookings
+- **Payment integration** with PayPal for secure, seamless payment processing
+
+## Built With
+
+- [![React][React.js]][React-url]
+- [![Redux][Redux.js]][Redux-url]
+- [![Firebase][Firebase]][Firebase-url]
+
+## About The Hotel 
+
+**Harmony Heights** is a vintage-themed hotel management app that leverages the power of React, Redux, and Firebase. This application aims to provide a robust and user-friendly solution for managing hotel operations while embodying the timeless elegance of its namesake in Pretoria.
+
+## 🛠️ Setup and Installation
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) and [npm](https://npmjs.com/)
+
+### Installation
+1. **Clone the repository:**
+   ```
+   git clone https://github.com/your-username/hotel-booking-app.git
+   cd hotel-booking-app
+   ```
+
+2. **Install dependencies:**
+   ```
+   npm install
+   ```
+   npm install @reduxjs/toolkit
+npm install firebase react-router-dom redux react-redux @paypal/react-paypal-js
+
+Navigate to the project directory:
+
+```
+cd hotel-app
+```
+3. Create `.env` file:
+
+```
+FIREBASE_API_KEY=AIzaSyCScRBxt00Bg2CWOqU5gKfSfzxvsjwhpCE
+FIREBASE_AUTH_DOMAIN=react-redux-hotel-app-30d0b.firebaseapp.com
+FIREBASE_PROJECT_ID=react-redux-hotel-app-30d0b
+FIREBASE_STORAGE_BUCKET=react-redux-hotel-app-30d0b.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=984495412645
+FIREBASE_APP_ID=1:984495412645:web:14722413d8da0592c9844c
+```
+3. **Change branch from main to dev:**
+
+``` 
+git checkout dev 
+```
+
+3. **Start the application:**
+   ```
+   npm run dev
+   ```
+
+## 🌐 Usage
+- Access **Admin Dashboard** to view, add, edit, delete and search rooms, and also set their availability.
+- **User Dashboard** allows users to view bookings, rate them, and add favorites.
+- Process payments with **PayPal** during booking.
+
+
+## 🔐 Authentication and Authorization
+- Users and Admins must log in via Firebase Authentication.
+- Access controls ensure only admins can manage room availability.
+
+## 💸 Payments
+- The **PayPalButton.js** component in `Payment/` manages payment processing.
+- Payments are secured through PayPal’s client ID setup.
+
+## Contact
+
+- Author: Matlhogonolo Naoa
+- Email: tlhoxi12@gmail.com
+- Project Link: `https://github.com/Matlhogonolo012/react-redux-hotel-app`
+
+## 📝 License
+This project is licensed under the MIT License.
+
+---
+
+> **Happy Booking! 🏨🌐**
+
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Redux.js]: https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white
+[Redux-url]: https://redux.js.org/
+[Firebase]: https://firebase.google.com/
+[Firebase-url]: https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black

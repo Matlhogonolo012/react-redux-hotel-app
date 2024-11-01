@@ -1,0 +1,63 @@
+.room-list-container {
+  max-height: 600px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.room-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.room-item {
+  flex: 1 1 calc(33.333% - 30px);
+  margin: 15px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.search-input {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.room-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1200px) {
+  .room-item {
+    flex: 1 1 calc(33.333% - 30px);
+  }
+}
+
+@media (max-width: 992px) {
+  .room-item {
+    flex: 1 1 calc(50% - 30px);
+  }
+}
+
+@media (max-width: 768px) {
+  .room-item {
+    flex: 1 1 calc(50% - 20px);
+    margin: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .room-item {
+    flex: 1 1 100%;
+    margin: 5px;
+  }
+}

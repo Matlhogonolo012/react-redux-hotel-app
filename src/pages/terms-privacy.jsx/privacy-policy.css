@@ -1,0 +1,35 @@
+.privacy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.privacy-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.privacy-header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.privacy-main {
+    padding: 0 20px;
+}
+
+.privacy-main section {
+    margin-bottom: 20px;
+}
+
+.privacy-main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.privacy-main p {
+    margin: 0 0 10px;
+    font-size: 1rem;
+}

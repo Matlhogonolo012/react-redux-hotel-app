@@ -1,0 +1,106 @@
+
+  
+  .admin-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .management-title {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #555;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .room-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .room-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .room-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .room-photos {
+    margin: 10px 0;
+  }
+  
+  .photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .room-photo {
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+  
+  .availability {
+    font-weight: bold;
+  }
+  
+  .available {
+    color: green;
+  }
+  
+  .not-available {
+    color: red;
+  }
+  
+  .room-actions {
+    margin-top: 10px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    background-color: #1da333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .edit-button:hover {
+    background-color: #00b37d;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+  }
+  
+  .delete-button:hover {
+    background-color: #a86e74;
+  }
+  
+  .form-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  

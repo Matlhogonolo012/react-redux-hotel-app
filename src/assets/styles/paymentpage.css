@@ -1,0 +1,100 @@
+.payment-page {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .back-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #8B4513;
+    margin-bottom: 10px;
+  }
+  
+  .back-icon {
+    margin-right: 5px;
+    font-size: 1.5em;
+  }
+  
+  .payment-title {
+    text-align: center;
+    color: #8B4513;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+  }
+  
+  .user-email,
+  .room-details {
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .details-title {
+    color: #8B4513;
+    margin-bottom: 10px;
+  }
+  
+  .total-amount {
+    color: #A0522D;
+    font-weight: bold;
+  }
+  
+  .paypal-container {
+    margin: 20px 0;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  .success-message {
+    color: green;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+  }
+  
+  .confirmation-button {
+    padding: 10px;
+    background-color: #c69c6d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .confirmation-button:hover {
+    background-color: #a76b4e;
+  }
+  
+  .payment-footer {
+    margin-top: 30px;
+  }
+  
+  @media (max-width: 600px) {
+    .payment-page {
+      padding: 15px;
+    }
+  
+    .payment-title {
+      font-size: 1.5em;
+    }
+  
+    .back-icon {
+      font-size: 1.2em;
+    }
+  
+    .confirmation-button {
+      padding: 8px;
+    }
+  }
+  

@@ -1,0 +1,84 @@
+body {
+  background-image: url('/src/assets/images/backround.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.login-form,
+.register-form {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #8B4513;
+}
+
+.form-input,
+.form-select {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #8B4513;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: #d69c6d;
+  outline: none;
+}
+
+.submit-button {
+  padding: 10px;
+  background-color: #c69c6d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #a76b4e;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.link-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forgot-password-link,
+.signup-link {
+  color: #8B4513;
+  text-decoration: none;
+}
+
+.forgot-password-link:hover,
+.signup-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,139 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.navigation {
+  flex-grow: 1;
+  display: flex;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #8B4513;
+  font-weight: bold;
+}
+
+.subNav {
+  display: flex;
+  align-items: center;
+}
+
+.facilitiesNav {
+  margin-right: 20px;
+}
+
+.facilitiesList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.facilitiesLink {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #8B4513;
+}
+
+.authButtons {
+  display: flex;
+}
+
+.signUpButton,
+.loginButton {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #c69c6d;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signUpButton:hover,
+.loginButton:hover {
+  background-color: #a76b4e;
+}
+
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1;
+    flex-direction: column;
+  }
+
+  .navigation.open {
+    display: flex;
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navLink {
+    margin: 10px 0;
+  }
+
+  .subNav {
+    display: none;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .navLink {
+    margin: 0 10px;
+  }
+
+  .facilitiesNav {
+    margin-right: 10px;
+  }
+
+  .authButtons {
+    flex-direction: column;
+  }
+
+  .signUpButton,
+  .loginButton {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
